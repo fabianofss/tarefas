@@ -40,9 +40,9 @@
                     <label for="conteudo">Conteudo</label>
                     <textarea class="form-control" id="conteudo" name="conteudo" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="float:rigth;">Salvar</button>
+                <button type="submit" class="btn btn-success btn-sm" style="float:rigth;">Salvar</button>
+                <a href="{{ url('/home') }}" class="btn btn-danger btn-sm">Voltar</a>
             </form>
-            <a href="{{ url('/home') }}" ><button class="btn btn-secondary">Voltar</button></a>
         </div>
     </div>
 </div>

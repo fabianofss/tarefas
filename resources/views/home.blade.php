@@ -29,25 +29,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ url('/tarefas/novatarefa') }}"><button class="btn btn-secondary">Nova Tarefa</button></a>
-                    <a href="{{ url('/publicas') }}"><button class="btn btn-secondary">Tarefas Publicas</button></a>
+                    <a  class="btn btn-success btn-sm" href="{{ url('/tarefas/novatarefa') }}">Nova Tarefa</a>
+                    <a  class="btn btn-primary btn-sm" href="{{ url('/publicas') }}">Tarefas Publicas</a>
                     </br>
-                    <div class="row">
+                    <div class="" style="padding-bottom: 5px;padding-top: 20px;">
                         <h3>Suas Trefas:</h3>
                     </div>
                     <div class="row">
                         @foreach($tarefas as $tarefa)
-                            <div class='col-sm-3'>
+                            <div class='col-sm-4'>
                                 <div class='card'>
                                     <div class='card-header'>
                                         {{$tarefa->titulo}}                                 
                                     </div>
                                     <div class='card-body'>{{$tarefa->conteudo}}</div>
+                                    <div class="card-footer text-muted">Criada em: {{$tarefa->created_at}}</div>
                                 </div>
                                     <div class='card' style="margin-bottom: 15px;">
                                         <div>
-                                            <a style="float: right;" class="btn btn-outline-danger btn-sm" href="{{ url("/tarefas/$tarefa->id/excluir") }}" ><i class="material-icons md-18" style="font-size:18px;">delete</i></i>&nbsp;Excluir</a>
-                                            <a style="float: right;" class="btn btn-outline-primary btn-sm" href="{{ url("/tarefas/$tarefa->id/editar") }}"><i class="material-icons md-18" style="font-size:18px;">edit</i>&nbsp;Editar</a>
+                                            <a style="float: right;" class="btn btn-danger btn-sm" href="{{ url("/tarefas/$tarefa->id/excluir") }}" ><i class="material-icons md-18" style="font-size:18px;">delete</i></i>&nbsp;Excluir</a>
+                                            <a style="float: right;" class="btn btn-primary btn-sm" href="{{ url("/tarefas/$tarefa->id/editar") }}"><i class="material-icons md-18" style="font-size:18px;">edit</i>&nbsp;Editar</a>
                                         </div>                                   
                                     </div>
                             </div>

@@ -26,11 +26,9 @@
         </div>
         <div class="card">
             <div class="row">
-                <div class="col-5"></div>
-                    <div class="col align-self-end">
-                        <a class="btn btn-outline-primary" href="{{ url('/home') }}"><i class="material-icons">clear</i>&nbsp;Cancelar</a>
-                        <a class="btn btn-outline-danger" href="{{ url("/tarefas/$tarefa->id/destroy") }}" ><i class="material-icons">delete</i></i>&nbsp;Excluir</a>
-                    </div>
+                <div class="col align-self-end">
+                    <a class="btn btn-primary btn-sm" href="{{ url('/home') }}"><i class="material-icons">clear</i>&nbsp;Cancelar</a>
+                    <a class="btn btn-danger btn-sm" href="{{ url("/tarefas/$tarefa->id/destroy") }}" ><i class="material-icons">delete</i></i>&nbsp;Excluir</a>
                 </div>
             </div>
         </div>
