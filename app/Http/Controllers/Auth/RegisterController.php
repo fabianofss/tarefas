@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -62,6 +63,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //Verificar se o usuario para tarefas publicas existe
+        if (DB::table('users')->where('id', 99999999)->count() == 0) {
+            //Se não exitir então cria
+            DB::table('users')->insert([
+                'id'=>'99999999',
+                'name' => 'tester',
+                'email' => 'teste@admin.com',
+                'password' => bcrypt('admin'),
+                'remember_token' => str_random(10),
+            ]);
+        }  
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
