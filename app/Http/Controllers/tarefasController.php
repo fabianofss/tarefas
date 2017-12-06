@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Tarefa;
 use App\User;
@@ -33,6 +34,17 @@ class tarefasController extends Controller{
 
     public function store(Request $request)
     {
+        //Verificar se o usuario para tarefas publicas existe
+        if (DB::table('users')->where('id', 99999999)->count() == 0) {
+                //Se não exitir então cria
+                DB::table('users')->insert([
+                    'id'=>'99999999',
+                    'name' => 'tester',
+                    'email' => 'teste@admin.com',
+                    'password' => bcrypt('admin'),
+                    'remember_token' => str_random(10),
+                ]);
+        }        
         //var_dump($request->all());
         Tarefa::create($request->all());
         return redirect('/home')->with("message", "Tarefa criada com sucesso!");
